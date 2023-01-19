@@ -1,4 +1,4 @@
-# README.md
-Data Engineering Zoomcamp 2023 - By DataTalksClub
+# Data Engineering Zoomcamp 2023 - By DataTalksClub
 
-2023 Cohorts - Homework Repo
+* ** Starts 16 January 2023
+* ** I will share my homework here.
