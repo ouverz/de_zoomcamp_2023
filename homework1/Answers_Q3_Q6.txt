@@ -1,9 +1,20 @@
 # Answer 1 (What is the tag for 'Image ID to file' after running docker --help build) 
+
+Run Command: docker --help build
+
+ANSWER: 
+
 --iidfile string
 
 # Answer 2 ( How many modules/packages are installed after running a docker with an image of Python 3.9? running pip list)
 
-root@a700edf3cffe:/# pip list
+Note: see Dockerfile
+Run Command: docker build -t homework_q2 . 
+             docker run -it homework_q2 
+             pip list
+
+ANSWER:
+
 Package    Version
 ---------- -------
 pip        22.0.4
@@ -19,7 +30,9 @@ FROM yellow_taxi_trips2
 WHERE date(lpep_pickup_datetime)='2019-01-15'
 AND date(lpep_dropoff_datetime)='2019-01-15';
 
-ANSWER = 20530
+ANSWER: 
+
+20530
 
 # Answer 4 - Which was the day with the largest trip distance eg. as in longest trip (tip: use pick up time for calculation)
 SELECT date(lpep_pickup_datetime), max(trip_distance)
@@ -27,7 +40,9 @@ FROM yellow_taxi_trips2
 GROUP BY 1
 ORDER BY 2 DESC;
 
-ANSWER = 2019-01-15
+ANSWER:
+
+2019-01-15
 
 # Answer 5 - In 2019-01 how many trips had 2 and 3 passengers
 SELECT passenger_count, COUNT(*)
@@ -36,7 +51,9 @@ WHERE date(lpep_pickup_datetime)='2019-01-01'
 GROUP BY 1
 HAVING (passenger_count=2 OR passenger_count=3)
 
-ANSWER = 2: 1282, 3: 254
+ANSWER:
+
+2: 1282, 3: 254
 
 # Answer 6 - For the passengers picked up in the Astoria Zone which was the drop off zone that had the largest #tip? We want the name of the zone, not the id.
 WITH astoria_zones AS (
@@ -55,4 +72,6 @@ INNER JOIN green_taxi_zones gz
 ON tr."DOLocationID"= gz."LocationID"
 GROUP BY 2,3
 
-Answer = "Long Island City/Queens Plaza"
+Answer:
+
+"Long Island City/Queens Plaza"
