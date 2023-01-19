@@ -1,2 +1,4 @@
-# de_zoomcamp_2023
-Data Engineering ZoomCamp 2023 - DataTalksClub
+# README.md
+Data Engineering Zoomcamp 2023 - By DataTalksClub
+
+2023 Cohorts - Homework Repo
