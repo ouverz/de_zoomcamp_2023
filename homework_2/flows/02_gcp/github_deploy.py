@@ -8,7 +8,7 @@ deployment = Deployment.build_from_flow(
      flow=etl_web_to_gcs,
      name="github-example",
      storage=storage,
-     entrypoint="https://github.com/ouverz/de_zoomcamp_2023/blob/main/homework_2/flows/02_gcp/etl_web_to_gcs.py:etl_web_to_gcs")
+     entrypoint="homework_2/flows/02_gcp/etl_web_to_gcs.py:etl_web_to_gcs")
 
 if __name__ == "__main__":
     deployment.apply()
