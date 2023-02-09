@@ -4,7 +4,7 @@ from prefect.filesystems import GitHub
 
 storage = GitHub.load("zoom-github")
 # entrypoint = "homework_2/flows/02_gcp/etl_web_to_gcs.py:etl_web_to_gcs"
-entrypoint = "02_gcp/etl_web_to_gcs.py:etl_web_to_gcs"
+entrypoint = "etl_web_to_gcs.py:etl_web_to_gcs"
 
 deployment = Deployment.build_from_flow(
      flow=etl_web_to_gcs,
