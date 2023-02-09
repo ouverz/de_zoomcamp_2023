@@ -64,10 +64,6 @@ def etl_web_to_gcs() -> None:
     print('the path returned is: ', path )
     write_gcs(path)
 
-@task()
-def fetch_code():
-    github_block = GitHub.load("zoom-github")
-
 
 if __name__ == '__main__':
     etl_web_to_gcs()
