@@ -61,8 +61,8 @@ def etl_web_to_gcs() -> None:
     df = fetch(dataset_url)
     df_clean = clean(df)
     path = write_local(df_clean, color, dataset_file)
-    print('the path returned is: ', path )
     write_gcs(path)
+    print(f"there were {len(df_clean)} records uploaded with the {color} data file")
 
 
 if __name__ == '__main__':
