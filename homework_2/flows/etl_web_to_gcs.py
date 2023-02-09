@@ -10,6 +10,7 @@ import pandas as pd
 from prefect import flow, task
 from prefect_gcp.cloud_storage import GcsBucket
 from prefect.filesystems import GitHub
+from prefect.blocks.notifications import SlackWebhook
 from pathlib import Path
 
 @task(log_prints=True)
@@ -38,7 +39,7 @@ def write_local(df: pd.DataFrame, color: str, dataset_file: str) -> Path:
     return path
 
 
-@task()
+@task(log_prints=True)
 def write_gcs(path: Path) -> None:
     """Upload local parquet file to GCS"""
     gcs_block = GcsBucket.load("zoom-gcp")
@@ -48,6 +49,14 @@ def write_gcs(path: Path) -> None:
 
     return
     
+@task(log_prints=True)
+def slack_notification():
+    """Send notification to Slack when successful"""
+    
+    slack_webhook_block = SlackWebhook.load("zoomcamp-slack")
+    slack_webhook_block.notify("Upload of datafiles to GCS completed Successfully!")
+    
+    return
 
 @flow(log_prints=True)
 def etl_web_to_gcs() -> None:
@@ -63,6 +72,7 @@ def etl_web_to_gcs() -> None:
     path = write_local(df_clean, color, dataset_file)
     write_gcs(path)
     print(f"there were {len(df_clean)} records uploaded with the {color} data file")
+    slack_notification()
 
 
 if __name__ == '__main__':
