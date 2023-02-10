@@ -52,19 +52,19 @@ def write_gcs(path: Path) -> None:
 @task(log_prints=True)
 def slack_notification():
     """Send notification to Slack when successful"""
-    
+
     slack_webhook_block = SlackWebhook.load("zoomcamp-slack")
     slack_webhook_block.notify("Upload of datafiles to GCS completed Successfully!")
     
     return
 
 @flow(log_prints=True)
-def etl_web_to_gcs() -> None:
+def etl_web_to_gcs(color, year, months) -> None:
     """The main ETL function"""
-    color = "green"
-    year = 2020
-    month = 11
-    dataset_file = f"{color}_tripdata_{year}-{month:02}"
+    # color = "green"
+    # year = 2020
+    # month = 11
+    dataset_file = f"{color}_tripdata_{year}-{months:02}"
     dataset_url = f"https://github.com/DataTalksClub/nyc-tlc-data/releases/download/{color}/{dataset_file}.csv.gz"
     
     df = fetch(dataset_url)
@@ -76,4 +76,5 @@ def etl_web_to_gcs() -> None:
 
 
 if __name__ == '__main__':
-    etl_web_to_gcs()
+    
+    etl_web_to_gcs(color, year, months)

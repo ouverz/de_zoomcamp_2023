@@ -10,7 +10,13 @@ deployment = Deployment.build_from_flow(
      flow=etl_web_to_gcs,
      name="github-example",
      storage=storage,
-     entrypoint=entrypoint)
+     entrypoint=entrypoint,
+     parameters={
+          'color':'green',
+          'year': 2019,
+          'months': 4
+     }
+     )
 
 if __name__ == "__main__":
     deployment.apply()
