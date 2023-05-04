@@ -28,7 +28,7 @@ The nature of this datset in terms of when data is published is unclear, hence t
 
 ![This is a alt text 1.](https://github.com/ouverz/de_zoomcamp_2023/blob/main/capstone-project-tfl-cycling/images/data_pipeline_1.001.jpeg)
 
-![This is a alt text 2.](https://github.com/ouverz/de_zoomcamp_2023/main/capstone-project-tfl-cycling/images/data_pipeline_1.002.jpeg)
+![This is a alt text 2.](https://github.com/ouverz/de_zoomcamp_2023/blob/main/capstone-project-tfl-cycling/images/data_pipeline_1.002.jpeg)
 
 
 ### Tech Stack
