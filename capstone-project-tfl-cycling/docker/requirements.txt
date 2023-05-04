@@ -1,0 +1,7 @@
+lxml
+#python-decouple
+pyspark
+apache-airflow-providers-apache-spark
+apache-airflow-providers-google
+requests
+pandas

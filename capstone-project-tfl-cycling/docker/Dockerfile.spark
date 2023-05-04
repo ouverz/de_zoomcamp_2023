@@ -1,0 +1,10 @@
+FROM docker.io/bitnami/spark:3.3
+
+USER root
+
+# Pyspark job
+COPY ./dags/pyspark_read_etl.py /opt/bitnami/spark/
+
+COPY ./requirements_copy.txt /
+
+RUN pip install -r /requirements_copy.txt
